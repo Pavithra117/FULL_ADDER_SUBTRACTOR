@@ -26,6 +26,9 @@ Carry = AB + ACin + BCin
 
 **Figure -1 FULL ADDER**
 
+![Screenshot 2025-04-23 231259](https://github.com/user-attachments/assets/48f7ffbe-62e9-4a45-876e-aec9af59e639)
+
+
 **Full Subtractor**
 
 A full subtractor is a combinational circuit that performs subtraction involving three bits, namely minuend, subtrahend, and borrow-in . It accepts three inputs: minuend, subtrahend and a borrow bit and it produces two outputs: difference and borrow.
@@ -38,18 +41,49 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+![Screenshot 2025-04-23 231307](https://github.com/user-attachments/assets/b073ff26-4ca5-4a49-9b56-1696dea3512d)
+
+
 **Procedure**
 
 Write the detailed procedure here
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+Developed by:Pavithra K  RegisterNumber: 212224240112
 */
+```
+i)FULL ADDER
+
+module fa(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+assign sum=( (a ^ b)^cin);
+assign carry= ( (a & b)| ( cin &(a ^ b )));
+endmodule
+
+ii)FULL SUBTRACTOR
+
+module fs(a,b,bin,difference,borrow);
+input a,b,bin;
+output difference,borrow;
+assign difference= ( (a ^ b)^bin);
+assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
+endmodule
+```
 
 **RTL Schematic**
 
+![Screenshot 2025-04-23 231147](https://github.com/user-attachments/assets/874b4435-b3b7-40f8-96ba-f8deb9d747f5)
+![Screenshot 2025-04-23 231214](https://github.com/user-attachments/assets/a70da14a-75ba-4af5-a8a0-c6db2ece9e60)
+
+
 **Output Timing Waveform**
+
+![Screenshot 2025-04-23 231233](https://github.com/user-attachments/assets/5e3314d1-c220-430a-b876-19bf087e544a)
+
+![Screenshot 2025-04-23 231241](https://github.com/user-attachments/assets/c4ee7bb3-bed4-48ed-a611-64a6fd1aec8e)
 
 **Result:**
 
